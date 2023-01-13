@@ -199,7 +199,10 @@ export default function Home() {
               }}
             >
               Or feel out my lesson{" "}
-              <a href="https://flni2grdqq9.typeform.com/to/KM0lwsMt">
+              <a
+                href="https://flni2grdqq9.typeform.com/to/KM0lwsMt"
+                target="blank"
+              >
                 inquiry form
               </a>
             </p>
