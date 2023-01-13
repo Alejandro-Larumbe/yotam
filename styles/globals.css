@@ -26,3 +26,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+html.wf-loading * {
+  opacity: 0;
+}

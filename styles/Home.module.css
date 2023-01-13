@@ -1,14 +1,29 @@
 .appbar {
-  font-family: bungee;
   background-color: var(--yellow);
-  color: var(--green);
   width: 100%;
   padding: 24px 16px;
-  font-size: 24px;
 }
-.hello {
+
+.container {
   padding: 16px;
+}
+
+.appbar svg {
+  width: auto;
+  height: 24px;
+}
+
+.hello {
+  composes: container;
   color: var(--yellow);
+}
+
+.hello h1 {
+  font-size: 32px;
+  margin-top: 48px;
+  font-weight: bolder;
+  letter-spacing: 1.3px;
+  font-family: Montserrat;
 }
 
 .helloImage {
@@ -21,42 +36,29 @@
 .helloImage img {
   object-fit: cover;
 }
-.teachingImage img {
-  object-fit: contain;
-}
 
 .about {
   margin: 56px 0;
-  padding: 16px;
+  composes: container;
   position: relative;
 }
 
-.aboutImage {
-  position: relative;
-  overflow: hidden;
-  width: 240px;
-  height: 240px;
-  z-index: 1;
-}
-
-.teaching {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
+.aboutImage,
 .teachingImage {
   position: relative;
   overflow: hidden;
   width: 240px;
   height: 240px;
   z-index: 1;
+}
+
+.teachingImage {
   right: 0px;
 }
 
 .teachingText {
   background-color: var(--orange);
-  padding: 36px 24px 24px;
+  padding: 36px 24px;
   color: var(--yellow);
   width: 300px;
   left: -32px;
@@ -66,7 +68,7 @@
 
 .aboutText {
   background-color: var(--green);
-  padding: 24px;
+  padding: 36px 24px;
   color: var(--yellow);
   width: 300px;
   left: 36px;
@@ -76,26 +78,28 @@
 
 .aboutText p,
 .teachingText p {
-  font-family: montserrat;
-  font-size: 12px;
+  font-family: Varta;
+  font-size: 14px;
 }
 
 .aboutText h2,
 .teachingText h2 {
-  font-family: PT serif;
-  margin: 8px 0;
+  font-family: Montserrat;
+  margin: 8px 0 24px;
 }
 
 .teaching {
   margin: 56px 0;
-  padding: 16px;
-  /* position: relative; */
+  composes: container;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .contact {
   background-color: var(--gold);
   color: var(--lead);
-  padding: 48px;
+  padding: 48px 0;
   text-align: center;
   margin: 56px 0;
 }
@@ -104,32 +108,86 @@
   color: blue;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  .card:hover {
-    background: rgba(var(--card-rgb), 0.1);
-    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+@media (min-width: 480px) {
+  .helloImage {
+    height: 70vh;
+  }
+  .container {
+    padding: 48px;
   }
 
-  .card:hover span {
-    transform: translateX(4px);
+  .aboutImage,
+  .teachingImage {
+    width: 320px;
+    height: 320px;
+  }
+
+  .aboutText {
+    left: 80px;
+    width: 320px;
+  }
+
+  .teachingText {
+    left: -80px;
+    width: 320px;
   }
 }
 
-@media (prefers-reduced-motion) {
-  .thirteen::before {
-    animation: none;
+@media (min-width: 700px) {
+  .container {
+    padding: 76px;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  .card:hover span {
-    transform: none;
+  .hello {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .hello h1 {
+    align-self: center;
+    font-size: 48px;
+  }
+
+  .helloImage {
+    width: 50vh;
+  }
+
+  .aboutImage,
+  .teachingImage {
+    width: 400px;
+    height: 400px;
+  }
+
+  .aboutText {
+    left: 184px;
+    width: 400px;
+  }
+
+  .teachingText {
+    left: -184px;
+    width: 400px;
+  }
+
+  .aboutText p,
+  .teachingText p {
+    font-size: 16px;
+  }
+  .aboutText h2,
+  .teachingText h2 {
+    font-size: 32px;
   }
 }
 
-/* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
-  .grid {
-    grid-template-columns: repeat(2, 50%);
+@media (min-width: 996px) {
+  .hello {
+    width: 900px;
+  }
+
+  .helloImage {
+    width: 50vh;
   }
 }
 
